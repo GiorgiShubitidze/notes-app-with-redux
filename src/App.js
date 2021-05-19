@@ -6,7 +6,7 @@ import { Sidebar } from './components/sidebar'
 import { MainPage } from './pages/MainPage'
 import { NotesPage } from './pages/NotesPage'
 import { PostPage } from './pages/PostPage'
-import { inc, dec, getPosts } from './actions'
+import { inc, dec, getPosts, deletePost } from './actions'
 import './App.css'
 
 export default function App() {
@@ -18,8 +18,7 @@ export default function App() {
   const increment = () => dispatch(inc())
 
   const deleteNote = (id) => {
-    const notes = notes.filter((item) => item.id !== id)
-    //setNotes(notes)
+    dispatch(deletePost(id));
   }
 
   return (

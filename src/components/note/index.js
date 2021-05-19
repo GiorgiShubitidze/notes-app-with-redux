@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-export function Note (note, handleClick) {
+export function Note ({note, handleClick}) {
     const history = useHistory()
     const getNote = (id) => {
         history.push(`./posts/${id}`)
@@ -9,11 +9,11 @@ export function Note (note, handleClick) {
 
   return (
     <li className='list-group-item d-flex justify-content-between'>
-      <div onClick={() => getNote(note.note.id)}>{note.note.title}</div>
+      <div onClick={() => getNote(note.note.id)}>{note.title}</div>
       <div>
         <button
           className='btn btn-sm btn-outline-danger'
-          onClick={() => handleClick(note.note.id)}
+          onClick={() => handleClick(note.id)}
         >
           x
         </button>

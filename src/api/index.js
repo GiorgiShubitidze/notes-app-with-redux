@@ -30,8 +30,14 @@ export const addPost = async (post) => {
     }
 }
 
-export const deletePost = (id) => {
-
+export const deletePost = async (id) => {
+    const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+    try {
+        const response = await axios.delete(url).then((res) => res)
+        return response.data
+    } catch (error) {
+        throw error.response
+    }
 }
 
 
